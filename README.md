@@ -87,7 +87,7 @@ service Hello {
 ```
 
 ## Configfile
-This labels equal to following configfile:
+This labels of docker provider equal to following configfile:
 dynamic.yaml
 ```yaml
 http:
