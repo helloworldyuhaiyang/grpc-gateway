@@ -5,7 +5,7 @@ We can update the proto files at any time, and the gateway will automatically up
 
 grpc-gateway: https://github.com/helloworldyuhaiyang/traefik
 
-grpc-server: https://github.com/helloworldyuhaiyang/go-grpc-demo
+demo-server: https://github.com/helloworldyuhaiyang/go-grpc-demo
 
 ## Run it
 It will start a traefik and a grpc gateway.
