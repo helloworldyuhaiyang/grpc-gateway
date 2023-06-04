@@ -3,7 +3,12 @@
 Implementing a grpc gateway based on traefik. There is no need for stub of proto files, just turn on reflection of GRPC server.
 We can update the proto files at any time, and the gateway will automatically update the GRPC's description.
 
+grpc-gateway: https://github.com/helloworldyuhaiyang/traefik
+
+grpc-server: https://github.com/helloworldyuhaiyang/go-grpc-demo
+
 ## Run it
+It will start a traefik and a grpc gateway.
 ```shell
 docker-compose up -d
 ```
