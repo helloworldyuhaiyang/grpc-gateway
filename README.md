@@ -1,6 +1,7 @@
 # grpc-gateway
 ## description
 Implementing a grpc gateway based on traefik. There is no need for stub of proto files, just turn on reflection of GRPC server.
+We can update the proto files at any time, and the gateway will automatically update the GRPC's description.
 
 ## Run it
 ```shell
@@ -80,4 +81,20 @@ service Hello {
 }
 ```
 
+## Configfile
+This labels equal to following configfile:
+dynamic.yaml
+```yaml
+http:
+   routers:
+      - go-grpc-demo:
+         entryPoints: ["grpc"]
+         service: go-grpc-example
+         rule: PathPrefix(`/go`)
 
+   services:
+      go-grpc-example:
+         loadBalancer:
+            servers:
+               - url: grpc://127.0.0.1:6002
+```
