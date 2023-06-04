@@ -1,0 +1,21 @@
+services:
+  reverse-proxy:
+    image: helloworldyu/traefik-dev:feature-grpc
+    command: --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  go-grpc-demo:
+    image: helloworldyu/go-grpc-demo:latest
+#    ports:
+#      - 6002:6002
+    labels:
+      - "traefik.http.routers.go-grpc-demo.rule=PathPrefix(`/go`)"
+      - "traefik.http.services.go-grpc-demo.loadbalancer.server.port=6002"
+      - "traefik.http.services.go-grpc-demo.loadbalancer.server.scheme=grpc"
